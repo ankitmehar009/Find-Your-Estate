@@ -14,7 +14,134 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      inquiries: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          name: string
+          phone: string | null
+          property_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          phone?: string | null
+          property_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+          property_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "inquiries_property_id_fkey"
+            columns: ["property_id"]
+            isOneToOne: false
+            referencedRelation: "properties"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      properties: {
+        Row: {
+          agent_email: string | null
+          agent_name: string | null
+          agent_phone: string | null
+          amenities: string[]
+          area_sqft: number | null
+          bathrooms: number | null
+          bedrooms: number | null
+          city: string
+          country: string | null
+          created_at: string
+          description: string
+          furnished: string | null
+          id: string
+          images: string[]
+          is_featured: boolean
+          lat: number | null
+          listing_type: string
+          lng: number | null
+          locality: string | null
+          parking: number | null
+          pin_code: string | null
+          price: number
+          property_type: string
+          state: string | null
+          title: string
+          views: number
+          year_built: number | null
+        }
+        Insert: {
+          agent_email?: string | null
+          agent_name?: string | null
+          agent_phone?: string | null
+          amenities?: string[]
+          area_sqft?: number | null
+          bathrooms?: number | null
+          bedrooms?: number | null
+          city: string
+          country?: string | null
+          created_at?: string
+          description: string
+          furnished?: string | null
+          id?: string
+          images?: string[]
+          is_featured?: boolean
+          lat?: number | null
+          listing_type?: string
+          lng?: number | null
+          locality?: string | null
+          parking?: number | null
+          pin_code?: string | null
+          price: number
+          property_type: string
+          state?: string | null
+          title: string
+          views?: number
+          year_built?: number | null
+        }
+        Update: {
+          agent_email?: string | null
+          agent_name?: string | null
+          agent_phone?: string | null
+          amenities?: string[]
+          area_sqft?: number | null
+          bathrooms?: number | null
+          bedrooms?: number | null
+          city?: string
+          country?: string | null
+          created_at?: string
+          description?: string
+          furnished?: string | null
+          id?: string
+          images?: string[]
+          is_featured?: boolean
+          lat?: number | null
+          listing_type?: string
+          lng?: number | null
+          locality?: string | null
+          parking?: number | null
+          pin_code?: string | null
+          price?: number
+          property_type?: string
+          state?: string | null
+          title?: string
+          views?: number
+          year_built?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
