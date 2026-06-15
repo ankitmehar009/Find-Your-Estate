@@ -45,7 +45,7 @@ function Browse() {
   const { data: properties = [], isLoading } = useQuery(propertiesQuery(filters));
 
   const update = (patch: Record<string, unknown>) =>
-    navigate({ search: (prev) => ({ ...prev, ...patch }) as never });
+    navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, ...patch }) as never });
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
